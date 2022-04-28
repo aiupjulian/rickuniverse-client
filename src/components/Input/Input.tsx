@@ -1,3 +1,4 @@
+import ErrorMessage from "../ErrorMessage";
 import styles from "./Input.module.css";
 
 type InputProps = {
@@ -6,6 +7,7 @@ type InputProps = {
   value?: string;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   type?: React.HTMLInputTypeAttribute;
+  errorMessage?: string;
 };
 
 export default function Input({
@@ -14,6 +16,7 @@ export default function Input({
   value,
   onChange,
   type = "text",
+  errorMessage,
 }: InputProps) {
   return (
     <div className={styles.container}>
@@ -21,13 +24,16 @@ export default function Input({
         {label}
       </label>
       <input
-        className={styles.input}
+        className={`${styles.input}${
+          errorMessage ? ` ${styles.inputError}` : ""
+        }`}
         id={name}
         name={name}
         value={value}
         onChange={onChange}
         type={type}
       />
+      {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
     </div>
   );
 }

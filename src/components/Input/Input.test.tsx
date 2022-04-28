@@ -60,4 +60,13 @@ describe("Input", () => {
     const inputElement = screen.getByLabelText(inputLabel) as HTMLInputElement;
     expect(inputElement.type).toEqual("password");
   });
+  test("renders errorMessage", () => {
+    const inputLabel = "Test text";
+    const errorMessage = "Error";
+    render(
+      <Input label={inputLabel} name="test" errorMessage={errorMessage} />
+    );
+    const errorElement = screen.getByText(errorMessage);
+    expect(errorElement).toBeInTheDocument();
+  });
 });

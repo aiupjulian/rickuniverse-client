@@ -15,3 +15,8 @@
   color: var(--color-ghost);
   font-size: var(--font-base);
 }
+
+.inputError {
+  border-color: var(--color-valencia);
+  margin-bottom: var(--size-2);
+}
