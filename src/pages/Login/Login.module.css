@@ -1,0 +1,11 @@
+.title {
+  text-align: center;
+}
+
+.form {
+  padding: var(--size-4);
+}
+
+.form > :not(:last-child) {
+  margin-bottom: var(--size-4);
+}

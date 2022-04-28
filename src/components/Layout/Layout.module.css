@@ -1,0 +1,16 @@
+.header {
+  background-color: var(--color-bunker);
+  padding: var(--size-3) var(--size-6);
+}
+
+.homeLink {
+  font-size: var(--font-3xl);
+  font-weight: bold;
+  color: var(--color-breaker-bay);
+  text-decoration: none;
+}
+
+.container {
+  max-width: var(--size-container);
+  margin: var(--size-6) auto;
+}

@@ -1,0 +1,11 @@
+.container {
+  width: 100%;
+  background-color: var(--color-breaker-bay);
+  color: var(--color-bunker);
+  border: none;
+  border-radius: var(--size-border-radius);
+  padding: var(--size-2) var(--size-4);
+  font-weight: bold;
+  cursor: pointer;
+  font-size: var(--font-base);
+}

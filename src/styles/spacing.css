@@ -13,4 +13,7 @@
   --size-10: 2.5rem;
   --size-11: 2.75rem;
   --size-12: 3rem;
+
+  --size-container: 30rem;
+  --size-border-radius: 0.5rem;
 }

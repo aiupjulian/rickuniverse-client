@@ -1,0 +1,7 @@
+.container {
+  background-color: var(--color-bunker);
+  border: var(--size-px) solid var(--color-outer-space);
+  border-radius: var(--size-border-radius);
+  display: flex;
+  flex-direction: column;
+}
