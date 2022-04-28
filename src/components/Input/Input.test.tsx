@@ -44,4 +44,20 @@ describe("Input", () => {
     fireEvent.change(inputElement, { target: { value: newValue } });
     expect(handleChange).toHaveBeenCalled();
   });
+  test("sets input type", () => {
+    const inputLabel = "Test text";
+    const inputValue = "pass1234";
+    const handleChange = jest.fn();
+    render(
+      <Input
+        label={inputLabel}
+        name="test"
+        type="password"
+        value={inputValue}
+        onChange={handleChange}
+      />
+    );
+    const inputElement = screen.getByLabelText(inputLabel) as HTMLInputElement;
+    expect(inputElement.type).toEqual("password");
+  });
 });

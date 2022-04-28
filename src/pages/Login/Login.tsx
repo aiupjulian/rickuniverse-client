@@ -15,7 +15,7 @@ export default function Login() {
       <Card>
         <form className={styles.form} onSubmit={handleSubmit}>
           <Input label="Username" name="username" />
-          <Input label="Password" name="password" />
+          <Input label="Password" name="password" type="password" />
           <Button>Login</Button>
         </form>
       </Card>

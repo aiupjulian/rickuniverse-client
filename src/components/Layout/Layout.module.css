@@ -13,4 +13,5 @@
 .container {
   max-width: var(--size-container);
   margin: var(--size-6) auto;
+  padding: 0 var(--size-3);
 }

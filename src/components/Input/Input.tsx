@@ -5,9 +5,16 @@ type InputProps = {
   name: string;
   value?: string;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  type?: React.HTMLInputTypeAttribute;
 };
 
-export default function Input({ label, name, value, onChange }: InputProps) {
+export default function Input({
+  label,
+  name,
+  value,
+  onChange,
+  type = "text",
+}: InputProps) {
   return (
     <div className={styles.container}>
       <label htmlFor={name} className={styles.label}>
@@ -19,6 +26,7 @@ export default function Input({ label, name, value, onChange }: InputProps) {
         name={name}
         value={value}
         onChange={onChange}
+        type={type}
       />
     </div>
   );
