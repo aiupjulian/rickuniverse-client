@@ -1,6 +1,9 @@
 .header {
   background-color: var(--color-bunker);
   padding: var(--size-3) var(--size-6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .homeLink {
@@ -14,4 +17,8 @@
   max-width: var(--size-container);
   margin: var(--size-6) auto;
   padding: 0 var(--size-3);
+}
+
+.logoutButton {
+  width: auto;
 }

@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import CharacterCard from "../../components/features/CharacterCard";
 import { Character, getCharacter } from "../../services/character";
 import { useAppSelector } from "../../store/hooks";
 import { selectToken } from "../../store/slices/authSlice";
+import { ReactComponent as CaretLeftIcon } from "../../icons/caret-left.svg";
+import styles from "./CharacterDetail.module.css";
 
 export default function CharacterDetail() {
   let { characterId } = useParams<"characterId">();
@@ -25,5 +27,13 @@ export default function CharacterDetail() {
     return null;
   }
 
-  return <CharacterCard character={character} />;
+  return (
+    <>
+      <Link to="/character" className={styles.listLink}>
+        <CaretLeftIcon className={styles.caretIcon} />
+        Back to list
+      </Link>
+      <CharacterCard character={character} />
+    </>
+  );
 }
