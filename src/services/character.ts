@@ -41,7 +41,10 @@ export async function getCharacters(token: string): Promise<Characters> {
   return Promise.reject(GENERIC_ERROR_MESSAGE);
 }
 
-export async function getCharacter(token: string, id: string) {
+export async function getCharacter(
+  token: string,
+  id: string
+): Promise<Character> {
   const response = await fetch(
     `${process.env.REACT_APP_API_URL}/character/${id}`,
     {

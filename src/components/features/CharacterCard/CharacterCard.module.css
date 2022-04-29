@@ -36,11 +36,34 @@
 }
 
 .heartIcon {
+  appearence: none;
+  position: relative;
+  border: 0;
+  background-color: transparent;
+  padding: 0;
+  cursor: pointer;
   flex-shrink: 0;
   align-self: flex-end;
   margin-bottom: var(--size-2);
   margin-right: var(--size-2);
   color: var(--color-breaker-bay);
-  width: var(--size-5);
-  height: var(--size-5);
+  width: var(--size-7);
+  height: var(--size-7);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.heartIcon::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.heartIcon:hover::before {
+  background: rgb(247, 247, 247, 0.1);
 }
