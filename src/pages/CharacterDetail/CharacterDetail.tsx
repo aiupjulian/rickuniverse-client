@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import CharacterCard from "../../components/features/CharacterCard";
 import { Character, getCharacter } from "../../services/character";
 import { useAppSelector } from "../../store/hooks";
 import { selectToken } from "../../store/slices/authSlice";
@@ -20,5 +21,9 @@ export default function CharacterDetail() {
     }
   }, [token, characterId, isLoadingCharacter, character]);
 
-  return <h1>{character?.name}</h1>;
+  if (!character) {
+    return null;
+  }
+
+  return <CharacterCard character={character} />;
 }

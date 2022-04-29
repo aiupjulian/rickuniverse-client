@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import CharacterCard from "../../components/features/CharacterCard";
+import SlimCharacterCard from "../../components/features/SlimCharacterCard";
 import { Characters, getCharacters } from "../../services/character";
 import { useAppSelector } from "../../store/hooks";
 import { selectToken } from "../../store/slices/authSlice";
@@ -31,7 +31,7 @@ export default function CharacterList() {
             key={character.id}
             className={styles.itemLink}
           >
-            <CharacterCard character={character} />
+            <SlimCharacterCard character={character} />
           </Link>
         ))}
       </ul>
