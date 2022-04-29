@@ -5,12 +5,12 @@ import { useAppSelector } from "../../store/hooks";
 import { selectToken } from "../../store/slices/authSlice";
 import { useAppDispatch } from "../../store/hooks";
 import styles from "./Login.module.css";
-import Button from "../../components/Button";
-import Input from "../../components/Input";
-import Card from "../../components/Card";
+import Button from "../../components/common/Button";
+import Input from "../../components/common/Input";
+import Card from "../../components/common/Card";
+import ErrorMessage from "../../components/common/ErrorMessage";
 import { login } from "../../services/auth";
 import { login as loginAction } from "../../store/slices/authSlice";
-import ErrorMessage from "../../components/ErrorMessage";
 import { Keys, setLocalStorageItem } from "../../utils/localStorage";
 
 export default function Login() {
@@ -23,11 +23,10 @@ export default function Login() {
     password: false,
   });
   const [loginError, setLoginError] = useState("");
-
-  let token = useAppSelector(selectToken);
+  const token = useAppSelector(selectToken);
 
   if (token) {
-    return <Navigate to="/characters" replace />;
+    return <Navigate to="/character" replace />;
   }
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {

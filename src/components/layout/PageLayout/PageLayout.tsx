@@ -1,7 +1,7 @@
 import { Outlet, Link } from "react-router-dom";
-import styles from "./Layout.module.css";
+import styles from "./PageLayout.module.css";
 
-export default function Layout() {
+export default function PageLayout() {
   return (
     <div>
       <header className={styles.header}>

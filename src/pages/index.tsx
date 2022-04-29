@@ -1,32 +1,34 @@
 import { Routes, Route } from "react-router-dom";
 import Login from "./Login";
-import Characters from "./Characters";
-import Character from "./Character";
+import CharacterList from "./CharacterList";
+import CharacterDetail from "./CharacterDetail";
 import NotFound from "./NotFound";
-import Layout from "../components/Layout";
-import ProtectedPage from "../components/ProtectedPage/ProtectedPage";
+import PageLayout from "../components/layout/PageLayout";
+import ProtectedPage from "../components/layout/ProtectedPage/ProtectedPage";
 
 export default function Pages() {
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
+      <Route path="/" element={<PageLayout />}>
         <Route index element={<Login />} />
-        <Route
-          path="/characters"
-          element={
-            <ProtectedPage>
-              <Characters />
-            </ProtectedPage>
-          }
-        />
-        <Route
-          path="/character"
-          element={
-            <ProtectedPage>
-              <Character />
-            </ProtectedPage>
-          }
-        />
+        <Route path="character">
+          <Route
+            index
+            element={
+              <ProtectedPage>
+                <CharacterList />
+              </ProtectedPage>
+            }
+          />
+          <Route
+            path=":characterId"
+            element={
+              <ProtectedPage>
+                <CharacterDetail />
+              </ProtectedPage>
+            }
+          />
+        </Route>
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

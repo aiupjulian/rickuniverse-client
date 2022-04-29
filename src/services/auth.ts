@@ -1,9 +1,7 @@
 import { UNAUTHORIZED, BAD_REQUEST } from "http-status";
-
-const GENERIC_ERROR_MESSAGE = "An error ocurred, please try again later.";
+import { ApiError, GENERIC_ERROR_MESSAGE } from "./helpers";
 
 type LoginData = { token: string };
-type ApiError = { code: string; message: string };
 
 export async function login(
   username: string,
