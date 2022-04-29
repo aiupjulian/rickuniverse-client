@@ -4,4 +4,5 @@
   border-radius: var(--size-border-radius);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }

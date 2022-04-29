@@ -4,6 +4,7 @@ import CharacterCard from "../../components/features/CharacterCard";
 import { Characters, getCharacters } from "../../services/character";
 import { useAppSelector } from "../../store/hooks";
 import { selectToken } from "../../store/slices/authSlice";
+import styles from "./CharacterList.module.css";
 
 export default function CharacterList() {
   const token = useAppSelector(selectToken);
@@ -23,11 +24,17 @@ export default function CharacterList() {
   return (
     <>
       <h1>Characters</h1>
-      {characters?.results.map((character) => (
-        <Link to={`/character/${character.id}`} key={character.id}>
-          <CharacterCard character={character} />
-        </Link>
-      ))}
+      <ul className={styles.list}>
+        {characters?.results.map((character) => (
+          <Link
+            to={`/character/${character.id}`}
+            key={character.id}
+            className={styles.itemLink}
+          >
+            <CharacterCard character={character} />
+          </Link>
+        ))}
+      </ul>
     </>
   );
 }

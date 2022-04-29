@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.statusDot {
+  width: var(--size-2);
+  height: var(--size-2);
+  margin-right: var(--size-2);
+  display: inline-block;
+  border-radius: 50%;
+}
+
+.statusAlive {
+  background-color: var(--color-apple);
+}
+
+.statusDead {
+  background-color: var(--color-valencia);
+}
+
+.statusDefault {
+  background-color: var(--color-regent-gray);
+}

@@ -15,6 +15,7 @@ export interface Character {
   episode: string[];
   url: string;
   created: Date;
+  fav: boolean;
 }
 
 type Info = {
