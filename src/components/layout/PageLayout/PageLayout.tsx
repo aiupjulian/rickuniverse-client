@@ -4,8 +4,11 @@ import Button from "../../common/Button";
 import styles from "./PageLayout.module.css";
 import { useAppDispatch } from "../../../store/hooks";
 import { logout } from "../../../store/slices/authSlice";
+import { useAppSelector } from "../../../store/hooks";
+import { selectToken } from "../../../store/slices/authSlice";
 
 export default function PageLayout() {
+  const token = useAppSelector(selectToken);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
@@ -21,9 +24,11 @@ export default function PageLayout() {
         <Link to="/" className={styles.homeLink}>
           Rickuniverse
         </Link>
-        <Button onClick={handleLogoutClick} className={styles.logoutButton}>
-          Logout
-        </Button>
+        {token && (
+          <Button onClick={handleLogoutClick} className={styles.logoutButton}>
+            Logout
+          </Button>
+        )}
       </header>
       <div className={styles.container}>
         <Outlet />
