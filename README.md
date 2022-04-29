@@ -32,13 +32,10 @@ npm run build
 
 This project was built mainly with `react` and `redux`, but also uses:
 
-- `bcrypt`: to hash and check user passwords
-- `jsonwebtoken`: to protect the api with jwt
-- `mongoose`: to model application data
-- `mongoose`: to model application data
+- `react-router-dom`: to handle client navigation
+- `typescript`: to type components props, api responses and functions
 - `eslint`, `husky`, `lint-staged`, `prettier`: to format and lint for code quality
-- `jest`, `mongodb-memory-server`, `nock`, `supertest`: utilities for writing and running tests
-- `nodemon`: to make development easier by restarting server on changes
+- `jest`, `@testing-library/react`: utilities for writing and running tests
 
 ## Production
 
