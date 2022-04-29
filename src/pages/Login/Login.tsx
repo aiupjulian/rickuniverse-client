@@ -24,6 +24,7 @@ export default function Login() {
   });
   const [loginError, setLoginError] = useState("");
   const token = useAppSelector(selectToken);
+  const [isLoading, setIsLoading] = useState(false);
 
   if (token) {
     return <Navigate to="/character" replace />;
@@ -31,6 +32,7 @@ export default function Login() {
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    setIsLoading(true);
     const usernameError = !username;
     const passwordError = !password;
     if (usernameError || passwordError) {
@@ -38,6 +40,7 @@ export default function Login() {
         username: usernameError,
         password: passwordError,
       });
+      setIsLoading(false);
       return;
     }
     setFieldsErrors({ username: false, password: false });
@@ -46,11 +49,13 @@ export default function Login() {
       const { token } = await login(username, password);
       dispatch(loginAction(token));
       setLocalStorageItem(Keys.TOKEN, token);
+      setIsLoading(false);
       navigate("/character");
     } catch (error) {
       if (error instanceof Error) {
         setLoginError(error.message);
       }
+      setIsLoading(false);
     }
   }
 
@@ -86,7 +91,9 @@ export default function Login() {
               fieldsErrors?.password ? "Please enter a password" : ""
             }
           />
-          <Button>Login</Button>
+          <Button loading={isLoading}>
+            {isLoading ? "Logging in..." : "Login"}
+          </Button>
         </form>
       </Card>
     </div>

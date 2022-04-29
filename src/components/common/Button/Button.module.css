@@ -9,3 +9,7 @@
   cursor: pointer;
   font-size: var(--font-base);
 }
+
+.loading {
+  background-color: var(--color-regent-gray);
+}
