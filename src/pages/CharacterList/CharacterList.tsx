@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import SlimCharacterCard from "../../components/features/SlimCharacterCard";
+import SlimCharacterCardSkeleton from "../../components/features/SlimCharacterCard/SlimCharacterCardSkeleton";
 import { Characters, getCharacters } from "../../services/character";
 import { useAppSelector } from "../../store/hooks";
 import { selectToken } from "../../store/slices/authSlice";
@@ -25,15 +26,23 @@ export default function CharacterList() {
     <>
       <h1>Characters</h1>
       <ul className={styles.list}>
-        {characters?.results.map((character) => (
-          <Link
-            to={`/character/${character.id}`}
-            key={character.id}
-            className={styles.itemLink}
-          >
-            <SlimCharacterCard character={character} />
-          </Link>
-        ))}
+        {characters ? (
+          characters?.results.map((character) => (
+            <Link
+              to={`/character/${character.id}`}
+              key={character.id}
+              className={styles.itemLink}
+            >
+              <SlimCharacterCard character={character} />
+            </Link>
+          ))
+        ) : (
+          <>
+            <SlimCharacterCardSkeleton />
+            <SlimCharacterCardSkeleton />
+            <SlimCharacterCardSkeleton />
+          </>
+        )}
       </ul>
     </>
   );

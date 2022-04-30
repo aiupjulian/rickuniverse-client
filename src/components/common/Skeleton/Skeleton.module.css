@@ -1,0 +1,23 @@
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-bunker) 20%,
+    var(--color-outer-space) 40%,
+    var(--color-bunker) 60%
+  );
+  animation-timing-function: linear;
+  animation-name: shimmer;
+  animation-fill-mode: forwards;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  border-radius: var(--size-border-radius);
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 0px center;
+  }
+  to {
+    background-position: 2000px center;
+  }
+}

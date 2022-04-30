@@ -6,6 +6,7 @@ import { useAppSelector } from "../../store/hooks";
 import { selectToken } from "../../store/slices/authSlice";
 import { ReactComponent as CaretLeftIcon } from "../../icons/caret-left.svg";
 import styles from "./CharacterDetail.module.css";
+import CharacterCardSkeleton from "../../components/features/CharacterCard/CharacterCardSkeleton";
 
 export default function CharacterDetail() {
   let { characterId } = useParams<"characterId">();
@@ -23,17 +24,17 @@ export default function CharacterDetail() {
     }
   }, [token, characterId, isLoadingCharacter, character]);
 
-  if (!character) {
-    return null;
-  }
-
   return (
     <>
       <Link to="/character" className={styles.listLink}>
         <CaretLeftIcon className={styles.caretIcon} />
         Back to list
       </Link>
-      <CharacterCard character={character} />
+      {character ? (
+        <CharacterCard character={character} />
+      ) : (
+        <CharacterCardSkeleton />
+      )}
     </>
   );
 }
