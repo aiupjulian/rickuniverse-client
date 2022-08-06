@@ -1,0 +1,15 @@
+name: Build and deploy
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+    - name: Install SSH Key
+      uses: shimataro/ssh-key-action@v2
+      with:
+        key: ${{ secrets.SSH_PRIVATE_KEY }} 
+        known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
+    - run: echo "hola" >> hola.txt
+    - name: Deploy with rsync
+      run: rsync -avz -e 'ssh -p 5112' ./hola.txt ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/root/hola.txt
