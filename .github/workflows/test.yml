@@ -10,5 +10,6 @@ jobs:
       with:
         key: ${{ secrets.SSH_PRIVATE_KEY }} 
         known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
+    - run: echo "hola" >> hola.txt
     - name: Deploy with rsync
-      run: rsync -avz ./dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/zellwk/zellwk.com/dist/
+      run: rsync -avz -e 'ssh -p 5112' ./hola.txt ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/root/hola.txt
